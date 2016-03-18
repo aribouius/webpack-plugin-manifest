@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "name": "webpack-plugin-manifest",
-  "description": "Webpack",
+  "description": "webpack plugin for asset manifests",
   "author": "Ari Bouius <aribouius@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/aribouius/webpack-plugin-manifest",

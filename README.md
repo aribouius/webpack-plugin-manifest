@@ -1,4 +1,5 @@
 # webpack-plugin-manifest
+Webpack plugin for generating asset manifests.
 
 ## Installation
 ```bash
