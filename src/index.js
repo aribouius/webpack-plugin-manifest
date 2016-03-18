@@ -23,11 +23,11 @@ export default class AssetManifest {
       const manifest = {}
 
       compilation.chunks.forEach(chunk => {
+        if (!chunk.name) return
         chunk.files.forEach(file => {
           if (!regx.test(file)) return
-          const name = chunk.name || chunk.id
           const exts = file.split('.').slice(1).join('.')
-          manifest[`${name}.${exts}`] = base + file
+          manifest[`${chunk.name}.${exts}`] = base + file
         })
       })
 
