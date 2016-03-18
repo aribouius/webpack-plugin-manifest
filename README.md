@@ -21,10 +21,10 @@ Add new plugin instance to your `webpack` config
 
 ## Configuration
 The plugin accepts the following options:
-- `path`: Where to save the manifest. Defaults webpack output path.
+- `path`: Where to save the manifest. Defaults to webpack output path.
 - `fileName`: Name of the generated manifest file. Defaults to `webpack-manifest.json`.
 - `extensions`: An array of allowed file extensions. Defaults to `['.js', '.css']`.
-- `prettyPrint`: Format the JSON output for readability. Defaults to false.
+- `prettyPrint`: Whether to format the JSON output for readability. Defaults to false.
 
 ### Scripts
 * `npm run compile` - Compiles source files to disk (~/lib).
