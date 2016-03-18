@@ -1,7 +1,7 @@
 {
   "version": "0.1.4",
   "name": "webpack-plugin-manifest",
-  "description": "webpack plugin for asset manifests",
+  "description": "webpack plugin for generating asset manifests",
   "author": "Ari Bouius <aribouius@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/aribouius/webpack-plugin-manifest",
@@ -35,13 +35,16 @@
     "babel-preset-stage-0": "^6.3.13",
     "chai": "^3.4.1",
     "chai-fs": "^0.1.0",
+    "css-loader": "^0.23.1",
     "del": "^2.2.0",
     "eslint": "^1.10.3",
     "eslint-plugin-babel": "^3.1.0",
     "eslint-plugin-react": "^4.2.3",
+    "extract-text-webpack-plugin": "^1.0.1",
     "istanbul": "^1.0.0-alpha",
     "mocha": "^2.3.4",
     "sinon": "^1.17.3",
+    "style-loader": "^0.13.0",
     "webpack": "^1.12.14"
   },
   "keywords": [

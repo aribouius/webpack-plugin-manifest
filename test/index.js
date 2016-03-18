@@ -23,14 +23,14 @@ describe('ManifestPlugin', function() {
     })
   })
 
-  it('Accepts a custom file name', function(done) {
+  it('Uses a configured file name', function(done) {
     compile(new ManifestPlugin({ fileName: 'manifest.json' }), () => {
       expect(path.join(tmpDir, 'manifest.json')).to.be.a.file()
       done()
     })
   })
 
-  it('Accepts a custom output path', function(done) {
+  it('Uses a configured output path', function(done) {
     const dir = path.join(tmpDir, 'custom')
     compile(new ManifestPlugin({ path: dir }), () => {
       expect(path.join(dir, 'webpack-manifest.json')).to.be.a.file()
@@ -38,10 +38,58 @@ describe('ManifestPlugin', function() {
     })
   })
 
-  it('Maps file names to file paths', function(done) {
+  it('Uses chunk names for manifest keys', function(done) {
+    compile(new ManifestPlugin(), () => {
+      const manifest = require(manifestFile)
+      expect(manifest['main.js']).to.exist
+      done()
+    })
+  })
+
+  it('Prepends webpack output public path', function(done) {
     compile(new ManifestPlugin(), () => {
       const manifest = require(manifestFile)
       expect(manifest['main.js']).to.equal('/assets/main.js')
+      done()
+    })
+  })
+
+  it('Supports multiple entry chunks', function(done) {
+    compile(new ManifestPlugin(), () => {
+      const manifest = require(manifestFile)
+      expect(manifest['vendor.js']).to.exist
+      done()
+    })
+  })
+
+  it('Supports css bundles', function(done) {
+    compile(new ManifestPlugin(), () => {
+      const manifest = require(manifestFile)
+      expect(manifest['main.css']).to.exist
+      done()
+    })
+  })
+
+  it('Ignores code split chunks', function(done) {
+    compile(new ManifestPlugin(), () => {
+      const manifest = require(manifestFile)
+      expect(manifest['1.js']).to.not.exist
+      done()
+    })
+  })
+
+  it('Includes configured extensions', function(done) {
+    compile(new ManifestPlugin({ extensions: ['.js'] }), () => {
+      const manifest = require(manifestFile)
+      expect(manifest['main.js']).to.exist
+      done()
+    })
+  })
+
+  it('Does not include unknown extensions', function(done) {
+    compile(new ManifestPlugin({ extensions: ['.tmp'] }), () => {
+      const manifest = require(manifestFile)
+      expect(manifest['main.js']).to.not.exist
       done()
     })
   })
