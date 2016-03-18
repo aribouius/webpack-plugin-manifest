@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.1.0",
   "name": "webpack-plugin-manifest",
   "description": "Webpack",
   "author": "Ari Bouius <aribouius@gmail.com>",
@@ -23,7 +23,7 @@
     "test:watch": "npm run test -- --watch",
     "test:cov": "babel-node $(npm bin)/istanbul cover $(npm bin)/_mocha -- --recursive",
     "preversion": "npm run lint && npm test",
-    "version": "npm run compile && git add -A lib",
+    "version": "npm run compile && git add -A",
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {
