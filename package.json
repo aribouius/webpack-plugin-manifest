@@ -1,16 +1,16 @@
 {
   "version": "0.0.1",
   "name": "webpack-plugin-manifest",
-  "description": "",
+  "description": "Webpack",
   "author": "Ari Bouius <aribouius@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/aribouius/webpack-plugin-asset-manifest",
+  "homepage": "https://github.com/aribouius/webpack-plugin-manifest",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aribouius/webpack-plugin-asset-manifest.git"
+    "url": "https://github.com/aribouius/webpack-plugin-manifest.git"
   },
   "bugs": {
-    "url": "https://github.com/aribouius/webpack-plugin-asset-manifest/issues"
+    "url": "https://github.com/aribouius/webpack-plugin-manifest/issues"
   },
   "main": "index.js",
   "scripts": {
@@ -44,6 +44,12 @@
     "sinon": "^1.17.3",
     "webpack": "^1.12.14"
   },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "manifest",
+    "assets"
+  ],
   "engines": {
     "node": ">=4.2.1",
     "npm": ">=3"
