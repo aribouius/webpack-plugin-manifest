@@ -1,5 +1,8 @@
-# webpack-plugin-manifest
+# Webpack Manifest Plugin
 Webpack plugin for generating asset manifests.
+
+## Features
+Generates a JSON manifest file that maps chunk names to their corresponding output files.
 
 ## Installation
 ```bash
@@ -21,10 +24,10 @@ Add new plugin instance to your `webpack` config
 
 ## Configuration
 The plugin accepts the following options:
-- `path`: Where to save the manifest. Defaults to webpack output path.
+- `path`: Where to save the manifest. Defaults to Webpack output path.
 - `fileName`: Name of the generated manifest file. Defaults to `webpack-manifest.json`.
 - `extensions`: An array of allowed file extensions. Defaults to `['.js', '.css']`.
-- `prettyPrint`: Whether to format the JSON output for readability. Defaults to false.
+- `prettyPrint`: Whether to format the JSON output for readability. Defaults to `false`.
 
 ### License
 MIT

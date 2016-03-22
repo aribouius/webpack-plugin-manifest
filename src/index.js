@@ -7,7 +7,7 @@ export default class AssetManifest {
     path: undefined,
     fileName: 'webpack-manifest.json',
     extensions: ['.js', '.css'],
-    prettyPrint: true
+    prettyPrint: false
   }
 
   constructor(options) {
