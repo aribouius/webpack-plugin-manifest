@@ -1,5 +1,5 @@
 {
-  "version": "0.1.5",
+  "version": "1.0.0",
   "name": "webpack-plugin-manifest",
   "description": "webpack plugin for generating asset manifests",
   "author": "Ari Bouius <aribouius@gmail.com>",
