@@ -5,6 +5,7 @@ import mkdirp from 'mkdirp'
 export default class AssetManifest {
   static defaults = {
     path: undefined,
+    merge: false,
     fileName: 'webpack-manifest.json',
     extensions: ['.js', '.css'],
     prettyPrint: false
@@ -33,14 +34,28 @@ export default class AssetManifest {
 
       const dest = opts.path || conf.output.path
       const file = path.join(dest, opts.fileName)
-      const data = JSON.stringify(manifest, null, opts.prettyPrint ? 2 : null)
 
-      mkdirp(dest, err => {
-        if (err) throw err
-        fs.writeFile(file, data, error => {
-          if (error) throw error
+      const writeFile = data => {
+        const content = JSON.stringify(data, null, opts.prettyPrint ? 2 : null)
+        fs.writeFile(file, content, err => {
+          if (err) throw err
           callback()
         })
+      }
+
+      mkdirp(dest, err => {
+        if (opts.merge) {
+          fs.readFile(file, 'utf8', (error, content) => {
+            if (error) {
+              writeFile(manifest)
+            } else {
+              const data = JSON.parse(content)
+              writeFile({ ...data, ...manifest })
+            }
+          })
+        } else {
+          writeFile(manifest)
+        }
       })
     })
   }
